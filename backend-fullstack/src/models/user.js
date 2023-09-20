@@ -9,7 +9,13 @@ const UserSchema = new connection.Schema({
     password: {
         type:String,
         required:true
-    }
+    },
+    beaches: {
+        type:Array,
+        default:[],
+        required:false
+    },
+
 })
 
 const User = connection.model('User', UserSchema);

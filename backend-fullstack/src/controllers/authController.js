@@ -2,6 +2,7 @@ import User from "../models/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import fetch from "node-fetch"
 dotenv.config();
 
 const register = async (req, res) => {
@@ -27,20 +28,34 @@ const register = async (req, res) => {
 }
 
 const login = async (req, res) => {
-    const {email,password} = req.body;
+    const {email, password} = req.body;
     try {
         let oldUser = await User.findOne({email});
-        if(!oldUser) {
-            return res.status(404).json({message:"User doesn't exist"});
+        if (!oldUser) {
+            return res.status(404).json({message: "User doesn't exist"});
         }
-        let isPasswordCorrect = await bcrypt.compare(password,oldUser.password);
-        if(!isPasswordCorrect) {
-            return res.status(400).json({message:"Invalid credentials"});
+        let isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
+        if (!isPasswordCorrect) {
+            return res.status(400).json({message: "Invalid credentials"});
         }
-        const token = jwt.sign({email:oldUser.email,id:oldUser._id},process.env.JWT_SECRET,{expiresIn:"1h"});
-        res.status(200).json({email,token:token});
-    }
-    catch (error) {
+
+        const inputs = { beaches: oldUser.beaches }; 
+
+        const response = await fetch('http://localhost:5000/getbeaches', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(inputs)
+        });
+
+        const data = await response.json();
+        const token = jwt.sign({email: oldUser.email, id: oldUser._id}, process.env.JWT_SECRET, {expiresIn: "1h"});
+        
+        res.status(200).json({email, token: token});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({message: "Something went wrong"});
     }
 }
 
