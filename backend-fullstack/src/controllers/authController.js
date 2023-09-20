@@ -38,18 +38,6 @@ const login = async (req, res) => {
         if (!isPasswordCorrect) {
             return res.status(400).json({message: "Invalid credentials"});
         }
-
-        const inputs = { beaches: oldUser.beaches }; 
-
-        const response = await fetch('http://localhost:5000/getbeaches', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(inputs)
-        });
-
-        const data = await response.json();
         const token = jwt.sign({email: oldUser.email, id: oldUser._id}, process.env.JWT_SECRET, {expiresIn: "1h"});
         
         res.status(200).json({email, token: token});
