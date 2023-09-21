@@ -7,7 +7,7 @@ const addBeach = async (req, res) => {
         const user = await User.findOne({ email });
 
         if (!user) {
-            return res.status(404).json({ message: "Usuario no encontrado" });
+            return res.status(404).json({ message: "User not found" });
         }
 
         if (!user.favBeaches.includes(beach)) {
@@ -15,9 +15,9 @@ const addBeach = async (req, res) => {
             await user.save();
         }
 
-        res.status(200).json({ message: "Playa añadida a favoritos correctamente" });
+        res.status(200).json({ message: "Beach added to favorites successfully", favBeaches: user.favBeaches });
     } catch (error) {
-        res.status(500).json({ message: "Error interno del servidor", error: error.message });
+        res.status(500).json({ message: "Internal Server Error", error: error.message });
     }
 };
 
@@ -34,26 +34,20 @@ const deleteBeach = async (req, res) => {
         user.favBeaches = user.favBeaches.filter(b => b !== beach);
         await user.save();
 
-        res.status(200).json({ message: "Playa eliminada de favoritos correctamente" });
+        res.status(200).json({ message: "Beach deleted from favorites successfully", favBeaches: user.favBeaches });
     } catch (error) {
-        res.status(500).json({ message: "Error interno del servidor", error: error.message });
+        res.status(500).json({ message: "Internal Server Error", error: error.message });
     }
 };
 
-const getAllBeaches = async () => {
+
+const getAllBeaches = async (res) => {
     try {
-        const response = await fetch('http://localhost:5000/get_todays_info', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(inputs)
-        });
+        const response = await fetch('http://localhost:5000/get_todays_info');
 
         if (!response.ok) {
-            throw new Error('Error al obtener las playas');
+            throw new Error('Error getting beaches');
         }
-
         const beaches = await response.json();
         res.status(200).json(beaches);
     } catch (error) {

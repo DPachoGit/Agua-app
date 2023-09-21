@@ -11,7 +11,7 @@ router.post('/deletebeach', (req, res) => {
     beachController.deleteBeach(req, res);
 });
 
-router.post('/getAllBeaches', (req, res) => {
+router.get('/getAllBeaches', (req, res) => {
     beachController.getAllBeaches(req, res);
 });
 

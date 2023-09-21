@@ -2,7 +2,6 @@ import User from "../models/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import fetch from "node-fetch"
 dotenv.config();
 
 const register = async (req, res) => {
@@ -40,12 +39,13 @@ const login = async (req, res) => {
         }
         const token = jwt.sign({email: oldUser.email, id: oldUser._id}, process.env.JWT_SECRET, {expiresIn: "1h"});
         
-        res.status(200).json({email, token: token});
+        res.status(200).json({email, token: token, favBeaches: oldUser.favBeaches});
     } catch (error) {
         console.error(error);
         res.status(500).json({message: "Something went wrong"});
     }
 }
+
 
 export default{
     register,
