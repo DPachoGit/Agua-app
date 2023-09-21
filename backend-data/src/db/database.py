@@ -13,14 +13,16 @@ def create_table(db_path):
     # crear tabla con registros diarios
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS beach_water_info (
-            date TEXT,
-            name STRING,
-            e-coli INT,
-            enterococo INT,
-            ph INT,
-            chemical-1 INT,
+            date TEXT NOT NULL,
+            name TEXT NOT NULL,
+            e_coli INT,
+            enterococcus INT,
+            ph FLOAT,
+            ammonium FLOAT,
+            mercury FLOAT,
+            turbidity FLOAT,
             quality INT
-        )
+        );
     ''')
     conn.commit()
 
