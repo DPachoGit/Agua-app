@@ -41,9 +41,9 @@ const deleteBeach = async (req, res) => {
 };
 
 
-const getAllBeaches = async (res) => {
+const getAllBeaches = async (req, res) => {
     try {
-        const response = await fetch('http://localhost:5000/get_todays_info');
+        const response = await fetch('http://backend-data:5000/get_todays_info');
         
         if (!response.ok) {;
             throw new Error('Error getting beaches');
