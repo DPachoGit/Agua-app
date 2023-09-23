@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const BeachDataContext = createContext();
 
@@ -9,7 +9,8 @@ export const useBeachData = () => {
 export const BeachDataProvider = ({ children }) => {
   const [favBeaches, setFavBeaches] = useState([]);
   const [allBeaches, setAllBeaches] = useState([]);
-
+  const [dataFavBeaches, setDataFavBeaches] = useState([]);
+  
   const addBeachToFavorites = (beach) => {
     setFavBeaches([...favBeaches, beach]);
   };
@@ -36,9 +37,22 @@ export const BeachDataProvider = ({ children }) => {
     fetchAllBeaches();
   }, []);
 
+  useEffect(() => {
+    const filteredBeaches = allBeaches.beaches.filter(beach =>
+      favBeaches.some(favBeach => favBeach.name === beach.name)
+    );
+    setDataFavBeaches(filteredBeaches);
+  }, [favBeaches, allBeaches]);
+
   return (
     <BeachDataContext.Provider
-      value={{ favBeaches, allBeaches, addBeachToFavorites, removeBeachFromFavorites }}
+      value={{
+        favBeaches,
+        allBeaches,
+        dataFavBeaches,
+        addBeachToFavorites,
+        removeBeachFromFavorites
+      }}
     >
       {children}
     </BeachDataContext.Provider>
