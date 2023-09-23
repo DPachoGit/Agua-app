@@ -21,7 +21,7 @@ export const BeachDataProvider = ({ children }) => {
   useEffect(() => {
     const fetchAllBeaches = async () => {
       try {
-        const response = await fetch('http://localhost:3333/api/getAllBeaches');
+        const response = await fetch('http://localhost:3333/api/getallbeaches');
         if (response.ok) {
           const beachesData = await response.json();
           setAllBeaches(beachesData);
