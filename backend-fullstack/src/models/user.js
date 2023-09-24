@@ -1,6 +1,6 @@
-import mongoose from 'mongoose';
+import connection from '../db/mongoose.js';
 
-const UserSchema = new mongoose.Schema({
+const UserSchema = new connection.Schema({
     email: {
         type:String,
         required:true,
@@ -15,8 +15,8 @@ const UserSchema = new mongoose.Schema({
         default:[],
         required:false
     }
-});
+})
 
-const User = mongoose.model('User', UserSchema);
+const User = connection.model('User', UserSchema);
 
 export default User;
