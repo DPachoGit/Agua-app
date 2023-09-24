@@ -9,6 +9,7 @@ export const useBeachData = () => {
 export const BeachDataProvider = ({ children }) => {
   const [favBeaches, setFavBeaches] = useState([]);
   const [allBeaches, setAllBeaches] = useState([]);
+  const [dataFavBeaches, setDataFavBeaches] = useState([]);
 
   const addBeachToFavorites = (beach) => {
     setFavBeaches([...favBeaches, beach]);
@@ -36,9 +37,18 @@ export const BeachDataProvider = ({ children }) => {
     fetchAllBeaches();
   }, []);
 
+  useEffect(() => {
+    if (allBeaches && allBeaches.beaches) {
+      const filteredBeaches = allBeaches.beaches.filter(beach =>
+        favBeaches.includes(beach.name)
+      );
+      setDataFavBeaches(filteredBeaches);
+    }
+  }, [favBeaches, allBeaches]);
+
   return (
     <BeachDataContext.Provider
-      value={{ favBeaches, allBeaches, addBeachToFavorites, removeBeachFromFavorites }}
+      value={{ favBeaches, allBeaches, setFavBeaches, addBeachToFavorites, removeBeachFromFavorites }}
     >
       {children}
     </BeachDataContext.Provider>

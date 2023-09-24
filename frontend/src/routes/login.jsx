@@ -5,7 +5,7 @@ import { useBeachData } from '../context/beachDataContext';
 
 const Login = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(LoggedInContext);
-  const { setFavBeaches } = useBeachData();
+  const { setFavBeaches } = useBeachData()
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -46,7 +46,7 @@ const Login = () => {
       setError('Something went wrong');
     }
   };
-
+  
   return (
     <section id="login-form">
       <h2>Login</h2>
