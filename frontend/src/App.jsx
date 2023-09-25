@@ -15,13 +15,13 @@ function App() {
 
   return (
     
-    <BeachDataProviderLoggedInContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+    <BeachDataProvider value={{ isLoggedIn, setIsLoggedIn }}>
             <LoggedInContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
 
         <RouterProvider router={Router} />
         </LoggedInContext.Provider>
 
-    </BeachDataProviderLoggedInContext.Provider>
+    </BeachDataProvider>
   );
 }
 

@@ -6,12 +6,16 @@ import { FaUmbrella } from 'react-icons/fa'; // Importa el icono de sombrilla
 
 const customOption = ({ innerProps, label, data }) => (
   <div {...innerProps}>
-    <FaUmbrella style={{ position: 'relative', top: '10px', marginLeft: '10px', marginRight: '10px', color: '#10597D', fontSize: '33px' }} /> {/* Agrega el icono de sombrilla */}
+    <FaUmbrella style={{ position: 'relative', top: '10px', marginLeft: '10px', color: '#10597D', fontSize: '33px' }} /> {/* Agrega el icono de sombrilla */}
     {label}
   </div>
 );
 
-const Busqueda = ({ beaches, onSearch }) => {
+const Busqueda = ({ hola, beaches, onSearch }) => {
+  console.log("beachddddddddddddddddddddddddes");
+  console.log(hola);
+  
+  console.log("beachddddddddddddddddddddddddes");
   const [selectedBeach, setSelectedBeach] = useState(null);
 
   // Formatear los datos de las playas para que react-select los pueda entender

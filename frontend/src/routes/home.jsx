@@ -7,6 +7,9 @@ import BackgroundHome from "../components/background-home";
 import SearchResults from "../components/resultadoBusqueda";
 import BackgroundAzul from "../components/backgroundAzul";
 import SubFooterBar from "../components/subfooter";
+import { useBeachData } from '../context/beachDataContext';
+
+
 
 const beachesData = [
   
@@ -197,6 +200,9 @@ const beachesData = [
 
 const Home = () => {
 
+  const { allBeaches } = useBeachData();
+console.log(allBeaches);
+
 
   const [isSearchVisible, setSearchVisible] = useState(true);
   const [isResultVisible, setResultVisible] = useState(false);
@@ -232,7 +238,7 @@ const Home = () => {
         <BackgroundHome />
         <BackgroundAzul />
         {isSearchVisible && (
-          <Busqueda beaches={beachesData} onSearch={handleBeachSelect} />
+          <Busqueda hola={allBeaches} beaches={beachesData} onSearch={handleBeachSelect} />
         )}
         {isResultVisible && (
           <SearchResults selectedBeach={selectedBeach} />
