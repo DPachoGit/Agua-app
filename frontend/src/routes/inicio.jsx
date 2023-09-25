@@ -1,17 +1,20 @@
 import { Outlet, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import LoggedInContext from "../context/loggedInContext";
 
+//Este componente root si usa el contexto directamente si se usa como componente padre, en caso contrario no sirve por ahora la lectura del contexto logeedin
+// en los componentes hijo, se usa para ver el inicio de secion mediante loggedin del local storage que se carga al iniciar secio y se pierde al cerrar o pasar el tiempo estipulado de la sesion
 
 const Root = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+   // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const { isLoggedIn, setIsLoggedIn } = useContext(LoggedInContext);
 
     useEffect(() => {
         console.log("isLoggedIn", isLoggedIn)
     }, [isLoggedIn]);
 
     return (
-        <LoggedInContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+        <>
             <header>
                 <nav>
 
@@ -38,7 +41,7 @@ const Root = () => {
             <main>
                 <Outlet />
             </main>
-        </LoggedInContext.Provider>
+        </>
     );
 };
 

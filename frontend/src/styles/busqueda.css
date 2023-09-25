@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/Roboto-Regular.ttf') format('woff2');
+  /* Ajusta la ruta al archivo .woff2 en tu carpeta pública */
+}
+
+.busqueda {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 390px;
+  padding: 8px;
+  align-items: center;
+  z-index: 10;
+}
+
+.titulobusqueda {
+  margin-top: 200px;
+  width: 80%;
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+
+.selectbusqueda {
+  width: 80%;
+font-family: Roboto;
+font-style: normal;
+font-size: 14px;
+}
+
+.css-1nmdiq5-menu {
+color: #000;
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 55px; /* Igualar line-height a la altura */
+transition: background-color 0.3s;
+}
+
+.css-1nmdiq5-menu div div:hover {
+  background-color: #EFEFEF; /* Cambia el color de fondo en el hover */
+}
+
+
+
+
+
+
+.titulobusqueda h2 {
+  color: var(--Blanco, #FFF);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+  /* 100% */
+  letter-spacing: -0.408px;
+}
+

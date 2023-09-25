@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.resultados {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  z-index: 10;
+  width: 390px;
+}
+
+.resultados h1 {
+  color: var(--label-dark-primary, var(--Blanco, #FFF));
+  text-align: center;
+  font-family: Poppins;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 41px;
+  /* 120.588% */
+  letter-spacing: 0.374px;
+  margin-top: 100px;
+}
+
+.resultados h2 {
+  color: var(--Blanco, #FFF);
+  text-align: center;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Poppins;
+  margin-top: 30px;
+
+  color: var(--Blanco, #FFF);
+  text-align: center;
+  margin-left: 10px;
+
+  /* titulo grande */
+  font-family: Poppins;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 41px;
+  /* 120.588% */
+  letter-spacing: 0.374px;
+}
+
+.resultados h3 {
+  color: var(--Blanco, #FFF);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.446px;
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+.cajacomponentes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+}
+
+.cajacomponentes>div {
+  width: 157px;
+  height: 198px;
+  border-radius: 10px;
+  background: rgba(163, 207, 212, 0.35);
+}
+
+.resultados h5 {
+  color: var(--Blanco, #FFF);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 34.657px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.446px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.resultados h4 {
+  color: #000;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.374px;
+  border-radius: 10px 10px 0px 0px;
+  background: rgba(163, 207, 212, 0.20);
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+.resultados p {
+  padding: 0px 10px;
+  width: 155px;
+  color: var(--Blanco, #FFF);
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.55px;
+  text-align: center;
+
+
+}
+
+.cajacomponentes div div{ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  height: 80%;
+}
+
+.estado-agua{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.elipse{
+  position: relative;
+  left: 10px;
+  top: 20px;
+}
+ 
+.gota{
+  position: relative;
+  right: 25px;
+  top: 8px;
+}
