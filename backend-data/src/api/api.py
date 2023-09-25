@@ -6,6 +6,61 @@ import datetime
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 app = Flask(__name__)
 
+message_ok = 'Sin riesgo'
+message_caution = 'Valor muy alto, baño no recomendado'
+message_danger_list = {
+    'e-coli': 'Peligro de intoxicación gastrointestinal por ingesta o contacto en heridas o cortes en la piel.',
+    'enterococcus': 'Peligro de infección por ingesta o contacto en heridas o cortes en la piel.',
+    'ph': 'Acidez/Alcalinidad elevada del agua indicador de posible contaminación.',
+    'ammonium': 'Peligro de proliferación de organismos patógenos.',
+    'mercury': 'Peligro de intoxicación por compuestos derivados del mercurio.',
+    'turbidity': 'Peligro por partículas posiblemente contaminantes en suspensión.'
+}
+def get_messages_dict(e_coli, enterococcus, ph, ammonium, mercury, turbidity):
+    msg = {}
+    if e_coli >= 235:
+        msg['e-coli'] = message_danger_list['e-coli']
+    elif e_coli >= 170:
+        msg['e-coli'] = message_caution
+    else:
+        msg['e-coli'] = message_ok
+    if enterococcus >= 35:
+        msg['enterococcus'] = message_danger_list['enterococcus']
+    elif enterococcus >= 20:
+        msg['enterococcus'] = message_caution
+    else:
+        msg['enterococcus'] = message_ok
+    if ph >= 9 or ph <= 6:
+        if ph >= 9:
+            msg['ph'] = 'Alcalinidad elevada del agua indicador de posible contaminación.'
+        else:
+            msg['ph'] = 'Acidez elevada del agua indicador de posible contaminación.'
+    elif ph >= 8.5 or ph <= 6.5:
+        if ph >= 8.5:
+            msg['ph'] = message_caution
+        else:
+            msg['ph'] = 'Valor muy bajo, baño no recomendado'
+    else:
+        msg['ph'] = message_ok
+    if ammonium >= 1:
+        msg['ammonium'] = message_danger_list['ammonium']
+    elif ammonium >= 0.8:
+        msg['ammonium'] = message_caution
+    else:
+        msg['ammonium'] = message_ok
+    if mercury >= 1:
+        msg['mercury'] = message_danger_list['mercury']
+    elif mercury >= 0.8:
+        msg['mercury'] = message_caution
+    else:
+        msg['mercury'] = message_ok
+    if turbidity >= 5:
+        msg['turbidity'] = message_danger_list['turbidity']
+    elif turbidity >= 4.5:
+        msg['turbidity'] = message_caution
+    else:
+        msg['turbidity'] = message_ok
+    return msg
 
 @app.route('/', methods=['GET'])
 def home():
@@ -45,7 +100,8 @@ def get_todays_info():
                 'mercury':mercury,
                 'turbidity': turbidity,
                 'quality': quality
-            }
+            },
+            'messages': get_messages_dict(e_coli, enterococcus, ph, ammonium, mercury, turbidity)
         })
     res['beaches'] = beaches
     return res
