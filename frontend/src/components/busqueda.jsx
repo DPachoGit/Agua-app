@@ -11,18 +11,21 @@ const customOption = ({ innerProps, label, data }) => (
   </div>
 );
 
-const Busqueda = ({ hola, beaches, onSearch }) => {
-  console.log("beachddddddddddddddddddddddddes");
-  console.log(hola);
-  
-  console.log("beachddddddddddddddddddddddddes");
+const Busqueda = ({ hola, onSearch }) => {
+ 
   const [selectedBeach, setSelectedBeach] = useState(null);
 
-  // Formatear los datos de las playas para que react-select los pueda entender
-  const options = beaches.map((beach) => ({
+
+
+let options = [];
+
+// Verificar si hola.beaches no es undefined antes de realizar el mapeo
+if (hola && hola.beaches !== undefined) {
+  options = hola.beaches.map((beach) => ({
     label: beach.name,
     value: beach,
   }));
+}
 
   // Función para manejar la selección de una playa
   const handleBeachSelect = (selectedOption) => {

@@ -146,3 +146,8 @@
   right: 25px;
   top: 8px;
 }
+
+.caja-estado{
+  display: flex;
+  
+}

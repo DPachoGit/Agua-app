@@ -14,21 +14,51 @@ const SearchResults = ({ selectedBeach }) => {
             </div>
 
             <div className="estado-agua">
-              <h2>{selectedBeach.info.contamination}</h2>
-              {selectedBeach.info.contamination === 'Buen estado' ? (
-                <div>
-                  <img className='elipse' src="ellipse3.svg" alt="Buen estado" />
-                  <img className='gota' src="gota.svg" alt="Buen estado" />
-                </div>
-                
-              ) : selectedBeach.info.contamination === 'Mal estado' ? (
-                <div>
-                  <img className='elipse' src="ellipse5.svg" alt="Mal estado"/>
-                  <img className='gota' src="gota.svg" alt="Mal estado" />
-                </div>
-              ) : (
-                <p>No se reconoce el estado de contaminación</p>
-              )}
+              {(() => {
+                switch (selectedBeach.info.quality) {
+                  case 2:
+                    return (
+                      <div className='caja-estado'>
+                        <div>
+                          <h2>Buen estado</h2>
+                        </div>
+                        <div>
+                          <img className='elipse' src="ellipse3.svg" alt="Buen estado" />
+                          <img className='gota' src="gota.svg" alt="Buen estado" />
+                        </div>
+                      </div>
+                    );
+                  case 0:
+                    return (
+                      <div className='caja-estado'>
+                        <div>
+                        <h2>Mal estado</h2>
+
+                        </div>
+                        <div>
+                        <img className='elipse' src="ellipse5.svg" alt="Mal estado" />
+                        <img className='gota' src="gota.svg" alt="Mal estado" />
+
+                        </div>
+                      </div>
+                    );
+                  case 1:
+                    return (
+                      <div className='caja-estado'>
+                        <div>
+                        <h2>Estado Medio</h2>
+
+                        </div>
+                        <div>
+                        <img className='elipse' src="elipseamarillo.svg" alt="Estado Medio" />
+                        <img className='gota' src="gota.svg" alt="Estado Medio" />
+
+                        </div>
+                      </div>)
+                  default:
+                    return null; // Manejo de caso no especificado, puedes cambiarlo según tus necesidades
+                }
+              })()}
             </div>
 
             <div>
