@@ -27,22 +27,25 @@ const register = async (req, res) => {
 }
 
 const login = async (req, res) => {
-    const {email,password} = req.body;
+    const {email, password} = req.body;
     try {
         let oldUser = await User.findOne({email});
-        if(!oldUser) {
-            return res.status(404).json({message:"User doesn't exist"});
+        if (!oldUser) {
+            return res.status(404).json({message: "User doesn't exist"});
         }
-        let isPasswordCorrect = await bcrypt.compare(password,oldUser.password);
-        if(!isPasswordCorrect) {
-            return res.status(400).json({message:"Invalid credentials"});
+        let isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
+        if (!isPasswordCorrect) {
+            return res.status(400).json({message: "Invalid credentials"});
         }
-        const token = jwt.sign({email:oldUser.email,id:oldUser._id},process.env.JWT_SECRET,{expiresIn:"1h"});
-        res.status(200).json({email,token:token});
-    }
-    catch (error) {
+        const token = jwt.sign({email: oldUser.email, id: oldUser._id}, process.env.JWT_SECRET, {expiresIn: "1h"});
+        
+        res.status(200).json({email, token: token, favBeaches: oldUser.favBeaches});
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({message: "Something went wrong"});
     }
 }
+
 
 export default{
     register,

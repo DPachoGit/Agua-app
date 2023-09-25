@@ -19,3 +19,10 @@ services:
     volumes:
       - ./backend-fullstack:/app
       - /app/node_modules
+  api:
+    build: ./backend-data
+    container_name: backend-data
+    ports:
+      - 5000:5000
+    volumes:
+      - ./backend-data:/app

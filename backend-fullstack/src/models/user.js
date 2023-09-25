@@ -9,6 +9,11 @@ const UserSchema = new connection.Schema({
     password: {
         type:String,
         required:true
+    },
+    favBeaches: {
+        type:Array,
+        default:[],
+        required:false
     }
 })
 

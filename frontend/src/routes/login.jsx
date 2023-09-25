@@ -1,12 +1,14 @@
-import { useState, useContext } from "react";
-import { useNavigate, useLocation, Link } from "react-router-dom";
-
-import LoggedInContext from "../context/loggedInContext";
+import { useState,  useContext } from 'react';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
+import LoggedInContext from '../context/loggedInContext';
+import { useBeachData } from '../context/beachDataContext';
 import '../styles/login-register.css'
 import Background from "../components/background";
 
 const Login = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(LoggedInContext);
+  const { setFavBeaches } = useBeachData()
+
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
@@ -17,6 +19,7 @@ const Login = () => {
       email: form.email.value,
       password: form.password.value
     }
+    try {
     let result = await fetch('http://localhost:3333/api/login', {
       method: 'POST',
       headers: {
@@ -36,8 +39,14 @@ const Login = () => {
     localStorage.setItem('user', JSON.stringify(result.email));
     localStorage.setItem('isLoggedIn', 'true');
     setIsLoggedIn(true);
+    setFavBeaches(result.favBeaches);
     navigate('/home');
+  } catch (error) {
+    console.error(error);
+    setError('Something went wrong');
   }
+};
+
   const location = useLocation();
   const isLoginRoute = location.pathname === '/login';
 
