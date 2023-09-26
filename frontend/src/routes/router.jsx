@@ -8,6 +8,7 @@ import Inicio from "./inicio";
 import Home from "./home";
 import Comenzar from "./comenzar";
 import Info from "./info";
+import Favorites from "./favorites";
 
 const Router = createBrowserRouter([
     {
@@ -42,7 +43,11 @@ const Router = createBrowserRouter([
             {
                 path:"/info",
                 element: <Info />
-            }
+            },
+            {
+                path: "/favorites",
+                element: <Favorites />
+            },
         ]
     },
 ]);

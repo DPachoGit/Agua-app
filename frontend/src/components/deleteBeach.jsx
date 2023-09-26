@@ -1,7 +1,6 @@
 import { useBeachData } from '../context/beachDataContext';
 
-const DeleteBeach = async (email, beach) => {
-  const { removeBeachFromFavorites } = useBeachData();
+const DeleteBeach = async (email, beach, removeBeachFromFavorites) => {
 
   try {
     const result = await fetch('http://localhost:3333/api/deletebeach', {

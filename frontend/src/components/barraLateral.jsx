@@ -57,7 +57,7 @@ function Sidebar() {
               <li><Link to="/home">Home</Link></li>
               </li>
               <li>
-                <Link to="/milista">Mi lista</Link>
+                <Link to="/favorites">Mi lista</Link>
               </li>
               <li>
              

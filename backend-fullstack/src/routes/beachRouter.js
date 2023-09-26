@@ -15,4 +15,8 @@ router.get('/getallbeaches', (req, res) => {
     beachController.getAllBeaches(req, res);
 });
 
+router.post('/getfavbeaches', (req, res) => {
+    beachController.getfavbeaches(req, res);
+});
+
 export default router;

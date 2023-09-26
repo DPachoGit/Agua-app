@@ -1,10 +1,12 @@
 import { useNavigate, Link, useLocation } from 'react-router-dom'
 import { useState, useContext } from 'react';
+import { useBeachData } from '../context/beachDataContext';
 import LoggedInContext from '../context/loggedInContext';
 import Background from '../components/background';
 
 const Register = () => {
     const { setIsLoggedIn } = useContext(LoggedInContext);
+    const { setEmail } = useBeachData()
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
@@ -35,6 +37,7 @@ const Register = () => {
         localStorage.setItem('user', JSON.stringify(result.email));
         localStorage.setItem('isLoggedIn', 'true');
         setIsLoggedIn(true);
+        setEmail(result.email)
         navigate('/comenzar');
     }
 

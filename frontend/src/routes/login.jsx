@@ -7,7 +7,7 @@ import Background from "../components/background";
 
 const Login = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(LoggedInContext);
-  const { setFavBeaches } = useBeachData()
+  const { setFavBeaches, setEmail } = useBeachData()
 
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -40,6 +40,7 @@ const Login = () => {
     localStorage.setItem('isLoggedIn', 'true');
     setIsLoggedIn(true);
     setFavBeaches(result.favBeaches);
+    setEmail(result.email)
     navigate('/home');
   } catch (error) {
     console.error(error);

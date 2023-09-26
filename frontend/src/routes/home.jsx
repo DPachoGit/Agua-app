@@ -12,8 +12,11 @@ import { useBeachData } from '../context/beachDataContext';
 
 const Home = () => {
 
-  const { allBeaches } = useBeachData();
-
+  const { allBeaches, favBeaches, dataFavBeaches } = useBeachData();
+  console.log("==============")
+  console.log(favBeaches)
+  console.log(dataFavBeaches)
+  console.log("==============")
 
   const [isSearchVisible, setSearchVisible] = useState(true);
   const [isResultVisible, setResultVisible] = useState(false);
