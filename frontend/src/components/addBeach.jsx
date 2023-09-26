@@ -1,7 +1,6 @@
 import { useBeachData } from '../context/beachDataContext';
 
-const AddBeach = async (email, beach) => {
-  const { addBeachToFavorites } = useBeachData();
+const AddBeach = async (email, beach, addBeachToFavorites) => {
 
   try {
     const result = await fetch('http://localhost:3333/api/addbeach', {

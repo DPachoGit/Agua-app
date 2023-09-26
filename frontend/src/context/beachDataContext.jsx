@@ -13,8 +13,6 @@ export const BeachDataProvider = ({ children }) => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState(null);
 
-  console.log(email)
-
   const addBeachToFavorites = (beach) => {
     setFavBeaches([...favBeaches, beach]);
   };
@@ -80,8 +78,9 @@ export const BeachDataProvider = ({ children }) => {
         favBeaches.includes(beach.name)
       );
       setDataFavBeaches(filteredBeaches);
+      console.log("DataFavBeaches actualizado:");
     }
-  }, [favBeaches, allBeaches, ]);
+  }, [setFavBeaches, allBeaches, ]);
 
   return (
     <BeachDataContext.Provider

@@ -1,8 +1,16 @@
 import React from 'react';
 import '../styles/resultados.css'
-
+import { useBeachData } from '../context/beachDataContext';
+import AddBeach from '../components/addBeach';
 
 const SearchResults = ({ selectedBeach }) => {
+  const { email, addBeachToFavorites } = useBeachData();
+
+  const handleAddToFavorite = async (email, beach) => {
+    await AddBeach(email, beach, addBeachToFavorites);
+  };
+
+
   return (
     <div>
       {selectedBeach ? (
@@ -60,6 +68,10 @@ const SearchResults = ({ selectedBeach }) => {
                 }
               })()}
             </div>
+
+            <div>
+            <button onClick={() => handleAddToFavorite(email, selectedBeach.name)}>Agregar a Favoritos</button>
+          </div>
 
             <div>
               <h3>Componentes del agua</h3>

@@ -6,19 +6,22 @@ import DeleteBeach from '../components/deleteBeach';
 const Favorites = () => {
   const { favBeaches, dataFavBeaches, email, removeBeachFromFavorites } = useBeachData();
 
-
   const [options, setOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (dataFavBeaches && dataFavBeaches.length > 0) {
-      const updatedOptions = dataFavBeaches.map((beach) => ({
-        label: beach.name,
-        value: beach,
-      }));
-      setOptions(updatedOptions);
-      setIsLoading(false);
-    }
+    const fetchData = async () => {
+      if (dataFavBeaches && dataFavBeaches.length > 0) {
+        const updatedOptions = dataFavBeaches.map((beach) => ({
+          label: beach.name,
+          value: beach,
+        }));
+        setOptions(updatedOptions);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, [dataFavBeaches]);
 
   const handleRemoveFromFavorites = async (email, beach) => {
