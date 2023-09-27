@@ -11,14 +11,15 @@ export const BeachDataProvider = ({ children }) => {
   const [allBeaches, setAllBeaches] = useState([]);
   const [dataFavBeaches, setDataFavBeaches] = useState([]);
   const [email, setEmail] = useState('');
+  const [prueba,setPrueba] = useState(0);
   const [error, setError] = useState(null);
 
   const addBeachToFavorites = (beach) => {
-    setFavBeaches([...favBeaches, beach]);
+    setPrueba(prueba+1);
   };
 
   const removeBeachFromFavorites = (beach) => {
-    setFavBeaches(favBeaches.filter((b) => b !== beach));
+    setPrueba(prueba+1);
   };
 
   useEffect(() => {
@@ -70,7 +71,7 @@ export const BeachDataProvider = ({ children }) => {
     };
 
     fetchFav();
-  }, [email]);
+  }, [email,prueba]);
 
   useEffect(() => {
     if (allBeaches && allBeaches.beaches) {
@@ -80,7 +81,7 @@ export const BeachDataProvider = ({ children }) => {
       setDataFavBeaches(filteredBeaches);
       console.log("DataFavBeaches actualizado:");
     }
-  }, [setFavBeaches, allBeaches, ]);
+  }, [favBeaches, allBeaches, prueba]);
 
   return (
     <BeachDataContext.Provider

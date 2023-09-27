@@ -11,7 +11,7 @@ const Favorites = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (dataFavBeaches && dataFavBeaches.length > 0) {
+      if (dataFavBeaches) {
         const updatedOptions = dataFavBeaches.map((beach) => ({
           label: beach.name,
           value: beach,
