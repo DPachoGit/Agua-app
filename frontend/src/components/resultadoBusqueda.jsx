@@ -10,7 +10,44 @@ const SearchResults = ({ selectedBeach }) => {
     await AddBeach(email, beach, addBeachToFavorites);
   };
 
+  const valores = {
+    1: (
+      <div className='caja-estado'>
+        <div>
+        <h2>Estado Medio</h2>
 
+        </div>
+        <div>
+        <img className='elipse' src="elipseamarillo.svg" alt="Estado Medio" />
+        <img className='gota' src="gota.svg" alt="Estado Medio" />
+
+        </div>
+      </div>),
+    2: (
+      <div className='caja-estado'>
+        <div>
+          <h2>Buen estado</h2>
+        </div>
+        <div>
+          <img className='elipse' src="ellipse3.svg" alt="Buen estado" />
+          <img className='gota' src="gota.svg" alt="Buen estado" />
+        </div>
+      </div>
+    ),
+    0: (
+      <div className='caja-estado'>
+        <div>
+        <h2>Mal estado</h2>
+
+        </div>
+        <div>
+        <img className='elipse' src="ellipse5.svg" alt="Mal estado" />
+        <img className='gota' src="gota.svg" alt="Mal estado" />
+
+        </div>
+      </div>
+    )
+  }
   return (
     <div>
       {selectedBeach ? (
@@ -23,49 +60,7 @@ const SearchResults = ({ selectedBeach }) => {
 
             <div className="estado-agua">
               {(() => {
-                switch (selectedBeach.info.quality) {
-                  case 2:
-                    return (
-                      <div className='caja-estado'>
-                        <div>
-                          <h2>Buen estado</h2>
-                        </div>
-                        <div>
-                          <img className='elipse' src="ellipse3.svg" alt="Buen estado" />
-                          <img className='gota' src="gota.svg" alt="Buen estado" />
-                        </div>
-                      </div>
-                    );
-                  case 0:
-                    return (
-                      <div className='caja-estado'>
-                        <div>
-                        <h2>Mal estado</h2>
-
-                        </div>
-                        <div>
-                        <img className='elipse' src="ellipse5.svg" alt="Mal estado" />
-                        <img className='gota' src="gota.svg" alt="Mal estado" />
-
-                        </div>
-                      </div>
-                    );
-                  case 1:
-                    return (
-                      <div className='caja-estado'>
-                        <div>
-                        <h2>Estado Medio</h2>
-
-                        </div>
-                        <div>
-                        <img className='elipse' src="elipseamarillo.svg" alt="Estado Medio" />
-                        <img className='gota' src="gota.svg" alt="Estado Medio" />
-
-                        </div>
-                      </div>)
-                  default:
-                    return null; // Manejo de caso no especificado, puedes cambiarlo según tus necesidades
-                }
+               return valores[selectedBeach.info.quality]
               })()}
             </div>
 
