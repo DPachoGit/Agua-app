@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import '../styles/subfooterbar.css';
+import { Link } from 'react-router-dom';
+
 
 const SubFooterBar = ({ isLoggedIn, selectedBeach }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+
+  console.log(selectedBeach);
   const toggleBar = () => {
     setIsExpanded(!isExpanded);
   };
@@ -12,40 +16,46 @@ const SubFooterBar = ({ isLoggedIn, selectedBeach }) => {
     if (!isLoggedIn) {
       return (
         <>
-          <p>Para ver más información, inicia sesión.</p>
-          <button>Login</button>
+          <p className="parrafo">Para ver más información, inicia sesión.</p>
+          <Link to={"/login"}>
+            <button className="buttonLog">Login</button>
+          </Link>
         </>
       );
     }
 
     if (!selectedBeach) {
-      return 'Bienvenidos';
+      return <div> <h1>Bienvenidos</h1> <div> <p className='parrafo'>Selecciona una playa para ver la información más detallada </p></div> </div>
     }
 
     // Define los elementos a mostrar y sus etiquetas
     const elements = [
-      { label: 'pH', value: selectedBeach.info.ph },
-      { label: 'Mercurio', value: selectedBeach.info.mercury },
-      { label: 'Amonio', value: selectedBeach.info.ammonium },
-      { label: 'E. coli', value: selectedBeach.info['e-coli'] },
-      { label: 'Enterococcus', value: selectedBeach.info.enterococcus },
-      { label: 'Turbidez', value: selectedBeach.info.turbidity },
+      { label: 'pH', key: 'ph' },
+      { label: 'Mercurio', key: 'mercury' },
+      { label: 'Amonio', key: 'ammonium' },
+      { label: 'E. coli', key: 'e-coli' },
+      { label: 'Enterococcus', key: 'enterococcus' },
+      { label: 'Turbidez', key: 'turbidity' },
       // Agrega más elementos aquí
     ];
-
+    
     return (
       <div className="sub-footer-content">
         <div className="grid-container">
           {elements.map((element, index) => (
             <div key={index} className="grid-item">
               <h1>{element.label}</h1>
-              <h2>{element.value}</h2>
-              <h3>Estos niveles son seguros.</h3>
+              <h2>{selectedBeach.info[element.key]}</h2>
+              <h3>{selectedBeach.messages[element.key]}</h3>
             </div>
           ))}
         </div>
       </div>
     );
+    
+  
+  
+  
   };
 
   return (

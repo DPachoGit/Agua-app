@@ -1,0 +1,124 @@
+.rectangulo-favoritos img {
+  width: 320px;
+}
+
+.main {
+  position: absolute;
+  z-index: 11;
+  top: 50px;
+  width: 390px;
+}
+
+ .titulo{
+  display: flex;
+  width: 100%;
+}
+
+.link{
+  color: #FFF;
+}
+
+.titulo h1 {
+  color: var(--Blanco, #FFF);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.446px;
+  margin-left: 80px;
+}
+
+
+.estadofav img {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  bottom: 175px;
+  left: 260px;
+}
+
+.estadofav h2 {
+  color: var(--Blanco, #FFF);
+  /* titulo grande */
+  font-family: Poppins;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 41px;
+  /* 120.588% */
+  letter-spacing: 0.374px;
+  position: relative;
+  bottom: 125px;
+  left: 20px;
+}
+
+.rectangulo-favoritos h3 {
+  color: var(--label-color-dark-primary, #FFF);
+  font-family: Poppins;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  position: relative;
+  bottom: 150px;
+  left: 20px;
+}
+
+.rectangulo-favoritos button {
+  position: relative;
+  bottom: 175px;
+  left: 105px;
+
+  width: 203px;
+  height: 33px;
+  border-radius: 40px;
+  background: var(--mid-dark-blue, #10597D);
+  color: var(--Blanco, #FFF);
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.374px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+}
+
+.rectangulo-favoritos {
+  margin-bottom: -120px;
+  margin-left: 30px;
+  width: 80%;
+
+}
+
+.cajafav {
+  margin-top: 30px;
+  overflow: auto;
+  height: 700px;
+  width: 390px;
+}
+
+.cajafav::-webkit-scrollbar {
+  width: 0.3em;
+  /* Cambia el ancho según tus preferencias */
+}
+
+.cajafav::-webkit-scrollbar-thumb {
+  background-color: #888;
+  /* Color de la barra de desplazamiento */
+}
+
+.quitar {
+  position: relative;
+  bottom: 185px;
+  height: 50px;
+  width: 50px;
+  margin-left: 120px;
+}

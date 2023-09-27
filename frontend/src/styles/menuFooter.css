@@ -2,15 +2,15 @@
   z-index: 1000;
   position: fixed;
   width: 390px;
-height: 90px;
+  height: 90px;
   display: flex;
- padding: 0 5%;
+  padding: 0 5%;
   justify-content: space-between;
-  bottom: 0; 
-align-items: center;
-background: #10597D;
-box-shadow: 0px 1px 0px 0px #5d8eac inset;
-backdrop-filter: blur(25px);
+  bottom: 0;
+  align-items: center;
+  background: #10597D;
+  box-shadow: 0px 1px 0px 0px #5d8eac inset;
+  backdrop-filter: blur(25px);
 
 }
 
@@ -22,46 +22,24 @@ backdrop-filter: blur(25px);
   top: 0;
 }
 
-.vector{
+.vector {
   width: 25px;
-height: 25px;
+  height: 25px;
 }
 
-.vectorinfo{
+.vectorinfo {
   width: 25px;
-height: 25px;
+  height: 25px;
 }
 
-.circulolupa{
-  position: absolute;
-  top: 15px;
-  right: 160px;
-  width: 58px;
-height: 58px;
-background: linear-gradient(134deg, rgba(255, 255, 255, 0.00) 14.77%, #BBBFC7 82.78%);
-border-radius: 100%;
-stroke-width: 2px;
-stroke: #FFF;
-filter: blur(1px);
-
-}
-
-.lupa{
-  position: absolute;
-  top: 23px;
-  right: 168px;
-  width: 41px;
-height: 41px;
 
 
-}
-
-.circulolupafondo{
+.circulolupafondo {
   fill: linear-gradient(134deg, rgba(0, 0, 0, 0.40) 14.77%, rgba(255, 255, 255, 0.28) 82.78%);
   filter: blur(0.5px);
   position: absolute;
-  top: 15px;
-  right: 160px;
-  width: 58px;
-height: 58px;
+  top: 0px;
+  right: 150px;
+  width: 84px;
+  height: 84px;
 }

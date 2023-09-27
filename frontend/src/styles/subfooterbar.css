@@ -5,6 +5,17 @@
   src: url('/Poppins-Regular.ttf') format('woff2'); /* Ajusta la ruta al archivo .woff2 en tu carpeta pública */
 }
 
+.sub-footer-bar h1{
+  font-size: 22px;
+  text-align: center;
+} 
+
+.parrafo{
+  font-size: 15px;
+  text-align: center;
+  margin-top: 12px;
+} 
+
 
 .sub-footer-bar {
   background-color: #333;
@@ -32,6 +43,8 @@
   background: #10597D;
   box-shadow: 0px 1px 0px 0px #5d8eac inset;
   backdrop-filter: blur(25px);
+  font-family: Poppins;
+
 
   &.expanded {
     height: 57%;
@@ -41,6 +54,21 @@
   .sub-footer-content {
     flex: 1;
   }
+
+
+  .sub-footer-content h2{
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  .sub-footer-content h3{
+    text-align: left;
+    margin-left: 10px;
+  }
+
+
+
 
   .toggle-button {
     width: 100%;
@@ -165,3 +193,36 @@ letter-spacing: 0.446px;
     letter-spacing: -0.55px;
    
   }
+
+
+  .buttonLog {
+    padding: 10px 20px;
+    background: var(--mid-dark-blue, #10597D);
+    margin-right: 10px;
+    cursor: pointer;
+    width: 308px;
+    height: 58px;
+    border-radius: 40px;
+    margin-top: 30px;
+    color: #FAFAFA;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  
+  }  
+
+  .grid-item{
+    overflow: auto;
+  }
+
+  .grid-item::-webkit-scrollbar {
+  width: 0.1em;
+  /* Cambia el ancho según tus preferencias */
+}
+
+.grid-item::-webkit-scrollbar-thumb {
+  background-color: #888;
+  /* Color de la barra de desplazamiento */
+}

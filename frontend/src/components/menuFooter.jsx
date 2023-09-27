@@ -47,9 +47,7 @@ const MenuFooter = ({ onSearchFooterClick }) => {
               <img className="vector" src="Vector.svg" alt="" /> {/* Icono de usuario */}
             </div>
             <div onClick={handleSearchClick}>
-            <img className="circulolupafondo" src="elipselupa.svg" alt="" /> {/* Icono de usuario */}
-            <img className="circulolupa" src="circulolupa.svg" alt="" /> {/* Icono de usuario */}
-            <img className="lupa" src="lupa.svg" alt="" /> {/* Icono de usuario */}
+            <img className="circulolupafondo" src="button.svg" alt="" /> {/* Icono de usuario */}
             </div>
             <div onClick={toggleConfig}>
             <img className="vectorinfo" src="vectorinfo.svg" alt="" /> {/* Icono de usuario */}

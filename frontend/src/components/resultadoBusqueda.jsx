@@ -2,9 +2,26 @@ import React from 'react';
 import '../styles/resultados.css'
 import { useBeachData } from '../context/beachDataContext';
 import AddBeach from '../components/addBeach';
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+
 
 const SearchResults = ({ selectedBeach }) => {
-  const { email, addBeachToFavorites } = useBeachData();
+  const { email, addBeachToFavorites, favBeaches } = useBeachData();
+  const [isAddedToFavorites, setIsAddedToFavorites] = useState(false);
+
+
+  useEffect(() => {
+
+    if (favBeaches.includes(selectedBeach.name)) {
+      setIsAddedToFavorites(true);
+    }
+
+  }, [favBeaches, selectedBeach]);
+
+
+
 
   const handleAddToFavorite = async (email, beach) => {
     await AddBeach(email, beach, addBeachToFavorites);
@@ -14,12 +31,12 @@ const SearchResults = ({ selectedBeach }) => {
     1: (
       <div className='caja-estado'>
         <div>
-        <h2>Estado Medio</h2>
+          <h2>Estado Medio</h2>
 
         </div>
         <div>
-        <img className='elipse' src="elipseamarillo.svg" alt="Estado Medio" />
-        <img className='gota' src="gota.svg" alt="Estado Medio" />
+          <img className='elipse' src="elipseamarillo.svg" alt="Estado Medio" />
+          <img className='gota' src="gota.svg" alt="Estado Medio" />
 
         </div>
       </div>),
@@ -37,17 +54,21 @@ const SearchResults = ({ selectedBeach }) => {
     0: (
       <div className='caja-estado'>
         <div>
-        <h2>Mal estado</h2>
+          <h2>Mal estado</h2>
 
         </div>
         <div>
-        <img className='elipse' src="ellipse5.svg" alt="Mal estado" />
-        <img className='gota' src="gota.svg" alt="Mal estado" />
+          <img className='elipse' src="ellipse5.svg" alt="Mal estado" />
+          <img className='gota' src="gota.svg" alt="Mal estado" />
 
         </div>
       </div>
     )
   }
+
+  console.log(isAddedToFavorites);
+
+
   return (
     <div>
       {selectedBeach ? (
@@ -60,36 +81,59 @@ const SearchResults = ({ selectedBeach }) => {
 
             <div className="estado-agua">
               {(() => {
-               return valores[selectedBeach.info.quality]
+                return valores[selectedBeach.info.quality]
               })()}
             </div>
 
             <div>
-            <button onClick={() => handleAddToFavorite(email, selectedBeach.name)}>Agregar a Favoritos</button>
-          </div>
+              <Link to={isAddedToFavorites ? "/favorites" : "/favorites"}>
+                <button
+                  className="boton-favortios"
+                  onClick={() => handleAddToFavorite(email, selectedBeach.name)}
+                >
+                  {!isAddedToFavorites && (
+                    <img src="favoritos.svg" alt="fav" />
+                  )}
+                  {isAddedToFavorites ? "Ver en Favoritos" : "Agregar a Favoritos"}
+                </button>
+              </Link>
+            </div>
 
             <div>
               <h3>Componentes del agua</h3>
             </div>
 
             <div className="cajacomponentes">
+  <div>
+    <h4>Biológicos</h4>
+    <div>
+      {selectedBeach.info.quality === 1 && (
+        <p>La calidad del agua en cuanto a componentes biológicos es de medio estado.</p>
+      )}
+      {selectedBeach.info.quality === 2 && (
+        <p>La calidad del agua en cuanto a componentes biológicos es de buen estado.</p>
+      )}
+      {selectedBeach.info.quality === 0 && (
+        <p>La calidad del agua en cuanto a componentes biológicos es de mal estado.</p>
+      )}
+    </div>
+  </div>
+  <div>
+    <h4>Químicos</h4>
+    <div>
+      {selectedBeach.info.quality === 1 && (
+        <p>El porcentaje de componentes químicos en la Playa  es de medio estado.</p>
+      )}
+      {selectedBeach.info.quality === 2 && (
+        <p>El porcentaje de componentes químicos en la Playa es de buen estado.</p>
+      )}
+      {selectedBeach.info.quality === 0 && (
+        <p>El porcentaje de componentes químicos en la Playa es de mal estado.</p>
+      )}
+    </div>
+  </div>
+</div>
 
-              <div>
-                <h4>Biológicos</h4>
-                <div>
-                  <p>La calidad del agua en cuanto a componentes biológicos es correcta.</p>
-
-                </div>
-              </div>
-              <div>
-                <h4>Químicos</h4>
-                <div>
-                  <p>El porcentaje de componentes químicos en la Playa de Ereaga ha cambiado respecto a la semana pasada.</p>
-
-                </div>
-              </div>
-
-            </div>
 
 
 
@@ -104,18 +148,3 @@ const SearchResults = ({ selectedBeach }) => {
 };
 
 export default SearchResults;
-
-
-/*<h3>{selectedBeach.name}</h3>
-          <ul>
-            <li>Ammonium: {selectedBeach.info.ammonium}</li>
-            <li>E. Coli: {selectedBeach.info["e-coli"]}</li>
-            <li>Enterococcus: {selectedBeach.info.enterococcus}</li>
-            <li>Mercury: {selectedBeach.info.mercury}</li>
-            <li>pH: {selectedBeach.info.ph}</li>
-            <li>Calidad: {selectedBeach.info.quality}</li>
-            <li>Turbidez: {selectedBeach.info.turbidity}</li>
-            <li>Contamination: {selectedBeach.info.contamination}</li>
-            <li>Biologics: {selectedBeach.info.biologics}</li>
-            <li>Chemicals: {selectedBeach.info.chemicals}</li>
-          </ul> */
