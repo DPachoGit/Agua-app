@@ -56,10 +56,10 @@ const InfoWidget = ({ toggleConfig }) => {
         <section>
           <article>
             <div>
-              <h3>Ph</h3>
+              <h3>E-coli</h3>
             </div>
             <div>
-              <p>Efectos: Piel irritada, Cansancio, Fatiga, Dolor, Espasmos, Caída del cabello...</p>
+              <p>Efectos: Efectos en el organismo: Infecciones gastrointestinales.</p>
             </div>
 
             <div>
@@ -81,10 +81,10 @@ const InfoWidget = ({ toggleConfig }) => {
         <section>
           <article>
             <div>
-              <h3>Ph</h3>
+              <h3>Streptococos</h3>
             </div>
             <div>
-              <p>Efectos: Piel irritada, Cansancio, Fatiga, Dolor, Espasmos, Caída del cabello...</p>
+              <p>Efectos: Variedad de infecciones (garganta, piel, tracto urinario, corazón).</p>
             </div>
 
             <div>
@@ -106,10 +106,10 @@ const InfoWidget = ({ toggleConfig }) => {
         <section>
           <article>
             <div>
-              <h3>Ph</h3>
+              <h3>Yurbidez</h3>
             </div>
             <div>
-              <p>Efectos: Piel irritada, Cansancio, Fatiga, Dolor, Espasmos, Caída del cabello...</p>
+              <p>Efectos: Infecciones, Problemas gastrointestinales y en la piel.</p>
             </div>
 
             <div>
@@ -131,10 +131,10 @@ const InfoWidget = ({ toggleConfig }) => {
         <section>
           <article>
             <div>
-              <h3>Ph</h3>
+              <h3>Amonio</h3>
             </div>
             <div>
-              <p>Efectos: Piel irritada, Cansancio, Fatiga, Dolor, Espasmos, Caída del cabello...</p>
+              <p>Efectos: Toxicidad, Problemas respiratorios, Conversión a Nitrito.</p>
             </div>
 
             <div>
@@ -156,10 +156,10 @@ const InfoWidget = ({ toggleConfig }) => {
         <section>
           <article>
             <div>
-              <h3>Ph</h3>
+              <h3>Mercurio</h3>
             </div>
             <div>
-              <p>Efectos: Piel irritada, Cansancio, Fatiga, Dolor, Espasmos, Caída del cabello...</p>
+              <p>Efectos: Neurotoxicidad, Daño renal, Problemas respiratorios...</p>
             </div>
 
             <div>

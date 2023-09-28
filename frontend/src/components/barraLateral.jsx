@@ -57,14 +57,18 @@ function Sidebar() {
               <li><Link to="/home">Home</Link></li>
               </li>
               <li>
-                <Link to="/favorites">Mi lista</Link>
+                <Link to="/favorites">Mis Favoritas</Link>
+              </li>
+              <li>
+                <Link to="/mapa">Mapa</Link>
               </li>
               <li>
              
-                <button onClick={handleLogout}>Cerrarr Sesión</button>
+                <button onClick={handleLogout}>Cerrar Sesión</button>
              
 
               </li>
+              <p>Versión 1.0.0</p>
             </>
           ) : (
             <>

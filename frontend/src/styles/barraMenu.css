@@ -2,85 +2,114 @@
 .sidebar {
   position: relative;
   z-index: 300;
-  background: rgba(16, 89, 125, 0.90);  color: #fff; /* Color de texto */
-  padding: 20px; /* Espaciado interno */
+  background: rgba(16, 89, 125, 0.90);
+  color: #fff;
+  /* Color de texto */
+  padding: 20px;
+  /* Espaciado interno */
   width: 199.938px;
-height: 850px;
+  height: 850px;
 }
 
 /* Estilos para el logo */
 .logobarra img {
-   /* Ajustar la imagen al ancho del contenedor */
-   margin-left: auto;
-   margin-right: auto;
-   display: block;
-   width: 70%;
-   position: relative;
-   z-index: 3000;
-   
+  /* Ajustar la imagen al ancho del contenedor */
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 70%;
+  position: relative;
+  z-index: 3000;
+
 }
 
 /* Estilos para la palabra "Perfil" */
 .perfil {
   text-align: center;
-  margin-top: 20px; /* Espaciado superior */
-  font-weight: bold; /* Negrita */
+  margin-top: 20px;
+  /* Espaciado superior */
+  font-weight: bold;
+  /* Negrita */
   color: var(--white, var(--Blanco, #FFF));
-/* cuerpo */
-font-family: Poppins;
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-letter-spacing: -0.333px;
+  /* cuerpo */
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.333px;
 }
 
 /* Estilos para la línea divisoria */
 hr {
   border: none;
-  border-top: 1px solid #fff; /* Línea divisoria blanca */
-  margin: 20px 0; /* Espaciado superior e inferior */
+  border-top: 1px solid #fff;
+  /* Línea divisoria blanca */
+  margin: 20px 0;
+  /* Espaciado superior e inferior */
 }
 
 /* Estilos para los enlaces */
 .enlaces ul {
-  list-style: none; /* Quitar viñetas de la lista */
+  list-style: none;
+  /* Quitar viñetas de la lista */
   padding: 0;
 }
 
 .enlaces ul li {
-  margin-bottom: 10px; /* Espaciado inferior entre elementos de la lista */
+  margin-bottom: 10px;
+  /* Espaciado inferior entre elementos de la lista */
 }
 
 .enlaces a,
 .enlaces button {
-  text-decoration: none; /* Quitar subrayado de los enlaces */
-  color: #fff; /* Color de texto de los enlaces */
-  display: block; /* Mostrar enlaces en bloque (uno debajo del otro) */
-  padding: 5px 0; /* Espaciado interno en los enlaces */
-  transition: background-color 0.3s; /* Transición de color de fondo */
+  text-decoration: none;
+  /* Quitar subrayado de los enlaces */
+  color: #fff;
+  /* Color de texto de los enlaces */
+  display: block;
+  /* Mostrar enlaces en bloque (uno debajo del otro) */
+  padding: 5px 0;
+  /* Espaciado interno en los enlaces */
+  transition: background-color 0.3s;
+  /* Transición de color de fondo */
   color: var(--white, var(--Blanco, #FFF));
-/* cuerpo */
-font-family: Poppins;
-font-size: 17px;
-font-style: normal;
-font-weight: 400;
-line-height: 22px; /* 129.412% */
-letter-spacing: -0.408px;
+  /* cuerpo */
+  font-family: Poppins;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  /* 129.412% */
+
 }
 
-/* Estilos para el botón de Cerrar Sesión */
+
 .enlaces button {
+  width: 159.95px;
+height: 58.025px;
+
   border-radius: 0px 46px;
-background: var(--Primary-color-dark, #2B2828);
+  background: var(--Primary-color-dark, #2B2828);
 
   border: none;
   cursor: pointer;
-  margin-top: 70%;
+  margin-top: 300px;
+}
+
+.enlaces p{
+  text-align: center;
+  color: var(--white, var(--Blanco, #FFF));
+font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
 
 /* Estilo al pasar el ratón sobre los enlaces */
 .enlaces a:hover,
 .enlaces button:hover {
-  background-color: #555; /* Color de fondo al pasar el ratón */
+  background-color: #555;
+  /* Color de fondo al pasar el ratón */
 }
