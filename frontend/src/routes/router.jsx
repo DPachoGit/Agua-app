@@ -10,6 +10,7 @@ import Comenzar from "./comenzar";
 import Info from "./info";
 import Favorites from "./favorites";
 import Mapa from "./mapa";
+import WeatherComponent from "./clima";
 
 const Router = createBrowserRouter([
     {
@@ -52,7 +53,14 @@ const Router = createBrowserRouter([
             {
                 path: "/mapa",
                 element: <Mapa />
+            },
+            {
+                path: "/clima",
+                element: <WeatherComponent />
             }
+
+
+            
         ]
     },
 ]);

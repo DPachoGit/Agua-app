@@ -42,7 +42,7 @@ const Mapa = () => {
           />
           {beaches.map((beach, index) => (
             <Marker key={index} position={beach.coordinates}>
-              <Popup>{beach.name}</Popup>
+              <Popup>{<>  <div>  <h1>beach.name</h1> <h2>  </h2>   </div>  </>}</Popup>
             </Marker>
           ))}
         </MapContainer>
