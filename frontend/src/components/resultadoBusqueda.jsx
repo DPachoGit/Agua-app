@@ -89,20 +89,27 @@ const SearchResults = ({ selectedBeach }) => {
             </div>
 
             <div>
-              {isLoggedIn && (
-                <Link to={isAddedToFavorites ? "/favorites" : "/favorites"}>
-                  <button
-                    className="boton-favortios"
-                    onClick={() => handleAddToFavorite(email, selectedBeach.name)}
-                  >
-                    {!isAddedToFavorites && (
-                      <img src="favoritos.svg" alt="fav" />
-                    )}
-                    {isAddedToFavorites ? "Ver en Mi lista" : "Agregar a Mi lista"}
-                  </button>
-                </Link>
-              )}
-            </div>
+  {isLoggedIn ? (
+    <Link to={isAddedToFavorites ? "/favorites" : "/favorites"}>
+      <button
+        className="boton-favortios"
+        onClick={() => handleAddToFavorite(email, selectedBeach.name)}
+      >
+        {!isAddedToFavorites && (
+          <img src="favoritos.svg" alt="fav" />
+        )}
+        {isAddedToFavorites ? "Ver en Mi lista" : "Agregar a Mi lista"}
+      </button>
+    </Link>
+  ) : (
+   <div> 
+    <br />
+    <br />
+    <br />
+    <br />
+   </div>
+  )}
+</div>
 
 
             <div>
