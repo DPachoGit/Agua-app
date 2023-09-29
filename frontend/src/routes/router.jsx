@@ -53,10 +53,6 @@ const Router = createBrowserRouter([
             {
                 path: "/mapa",
                 element: <Mapa />
-            },
-            {
-                path: "/clima",
-                element: <WeatherComponent />
             }
 
 

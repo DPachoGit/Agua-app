@@ -1,13 +1,28 @@
-import { useState,  useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import LoggedInContext from '../context/loggedInContext';
 import { useBeachData } from '../context/beachDataContext';
 import '../styles/login-register.css'
 import Background from "../components/background";
+import Logout from './logout';
+
 
 const Login = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(LoggedInContext);
   const { setFavBeaches, setEmail } = useBeachData()
+
+const logg = () => {
+
+setTimeout(() => {
+  setIsLoggedIn(false);
+  localStorage.setItem('isLoggedIn', 'false');
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+}, 20 * 60 * 1000); 
+
+
+}
+
 
   const [error, setError] = useState(null);
   const navigate = useNavigate();
@@ -20,33 +35,36 @@ const Login = () => {
       password: form.password.value
     }
     try {
-    let result = await fetch('http://localhost:3333/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data),
-    });
-    if (!result.ok) {
-      const message = await result.json();
-      setError(message.message);
-      return;
+      let result = await fetch('http://localhost:3333/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+      });
+      if (!result.ok) {
+        const message = await result.json();
+        setError(message.message);
+        return;
+      }
+      result = await result.json();
+      console.log(result);
+      const token = result.token;
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(result.email));
+      localStorage.setItem('isLoggedIn', 'true');
+      setIsLoggedIn(true);
+      setFavBeaches(result.favBeaches);
+      setEmail(result.email)
+      navigate('/home');
+      console.log('Sesión iniciada');
+      logg(); //cerrar sesión a los 20 minutos y limpiar el localStorage
+
+    } catch (error) {
+      console.error(error);
+      setError('Something went wrong');
     }
-    result = await result.json();
-    console.log(result);
-    const token = result.token;
-    localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(result.email));
-    localStorage.setItem('isLoggedIn', 'true');
-    setIsLoggedIn(true);
-    setFavBeaches(result.favBeaches);
-    setEmail(result.email)
-    navigate('/home');
-  } catch (error) {
-    console.error(error);
-    setError('Something went wrong');
-  }
-};
+  };
 
   const location = useLocation();
   const isLoginRoute = location.pathname === '/login';

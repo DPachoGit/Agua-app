@@ -4,6 +4,7 @@ import { useBeachData } from '../context/beachDataContext';
 import AddBeach from '../components/addBeach';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import SubFooterBar from './subfooter';
 
 
 
@@ -68,6 +69,8 @@ const SearchResults = ({ selectedBeach }) => {
 
   console.log(isAddedToFavorites);
 
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
 
   return (
     <div>
@@ -86,53 +89,56 @@ const SearchResults = ({ selectedBeach }) => {
             </div>
 
             <div>
-              <Link to={isAddedToFavorites ? "/favorites" : "/favorites"}>
-                <button
-                  className="boton-favortios"
-                  onClick={() => handleAddToFavorite(email, selectedBeach.name)}
-                >
-                  {!isAddedToFavorites && (
-                    <img src="favoritos.svg" alt="fav" />
-                  )}
-                  {isAddedToFavorites ? "Ver en Favoritos" : "Agregar a Favoritos"}
-                </button>
-              </Link>
+              {isLoggedIn && (
+                <Link to={isAddedToFavorites ? "/favorites" : "/favorites"}>
+                  <button
+                    className="boton-favortios"
+                    onClick={() => handleAddToFavorite(email, selectedBeach.name)}
+                  >
+                    {!isAddedToFavorites && (
+                      <img src="favoritos.svg" alt="fav" />
+                    )}
+                    {isAddedToFavorites ? "Ver en Mi lista" : "Agregar a Mi lista"}
+                  </button>
+                </Link>
+              )}
             </div>
+
 
             <div>
               <h3>Componentes del agua</h3>
             </div>
 
             <div className="cajacomponentes">
-  <div>
-    <h4>Biológicos</h4>
-    <div>
-      {selectedBeach.info.quality === 1 && (
-        <p>La calidad del agua en cuanto a componentes biológicos es de medio estado.</p>
-      )}
-      {selectedBeach.info.quality === 2 && (
-        <p>La calidad del agua en cuanto a componentes biológicos es de buen estado.</p>
-      )}
-      {selectedBeach.info.quality === 0 && (
-        <p>La calidad del agua en cuanto a componentes biológicos es de mal estado.</p>
-      )}
-    </div>
-  </div>
-  <div>
-    <h4>Químicos</h4>
-    <div>
-      {selectedBeach.info.quality === 1 && (
-        <p>El porcentaje de componentes químicos en la Playa  es de medio estado.</p>
-      )}
-      {selectedBeach.info.quality === 2 && (
-        <p>El porcentaje de componentes químicos en la Playa es de buen estado.</p>
-      )}
-      {selectedBeach.info.quality === 0 && (
-        <p>El porcentaje de componentes químicos en la Playa es de mal estado.</p>
-      )}
-    </div>
-  </div>
-</div>
+              <div>
+                <h4>Biológicos</h4>
+                <div>
+                  {selectedBeach.info.quality === 1 && (
+                    <p>La calidad del agua en cuanto a componentes biológicos es de medio estado.</p>
+                  )}
+                  {selectedBeach.info.quality === 2 && (
+                    <p>La calidad del agua en cuanto a componentes biológicos es de buen estado.</p>
+                  )}
+                  {selectedBeach.info.quality === 0 && (
+                    <p>La calidad del agua en cuanto a componentes biológicos es de mal estado.</p>
+                  )}
+                </div>
+              </div>
+              <div>
+                <h4>Químicos</h4>
+                <div>
+                  {selectedBeach.info.quality === 1 && (
+                    <p>El porcentaje de componentes químicos en la Playa  es de medio estado.</p>
+                  )}
+                  {selectedBeach.info.quality === 2 && (
+                    <p>El porcentaje de componentes químicos en la Playa es de buen estado.</p>
+                  )}
+                  {selectedBeach.info.quality === 0 && (
+                    <p>El porcentaje de componentes químicos en la Playa es de mal estado.</p>
+                  )}
+                </div>
+              </div>
+            </div>
 
 
 
@@ -143,6 +149,8 @@ const SearchResults = ({ selectedBeach }) => {
       ) : (
         <p>Selecciona una playa para ver los resultados.</p>
       )}
+      <SubFooterBar isLoggedIn={isLoggedIn} selectedBeach={selectedBeach} />
+
     </div>
   );
 };

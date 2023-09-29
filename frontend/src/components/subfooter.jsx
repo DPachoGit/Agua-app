@@ -38,13 +38,22 @@ const SubFooterBar = ({ isLoggedIn, selectedBeach }) => {
       { label: 'Turbidez', key: 'turbidity' },
       // Agrega más elementos aquí
     ];
-    
+
     return (
       <div className="sub-footer-content">
+        <div>
+          <img id='phimage' src="/ph.svg" alt="" />
+          <img id='mercuryimage' src="hg.svg" alt="" />
+          <img id='ammonioimage' src="amonio.svg" alt="" />
+          <img id='ecoliimage' src="ecoli.svg" alt="" />
+          <img id='enterococcusimage' src="estre.svg" alt="" />
+          <img id='turboimage' src="turbo.svg" alt="" />
+
+        </div>
         <div className="grid-container">
           {elements.map((element, index) => (
             <div key={index} className="grid-item">
-              <h1>{element.label}</h1>
+              <h1 className={`titulo-${element.key}`}>{element.label}</h1>
               <h2>{selectedBeach.info[element.key]}</h2>
               <h3>{selectedBeach.messages[element.key]}</h3>
             </div>
@@ -52,10 +61,10 @@ const SubFooterBar = ({ isLoggedIn, selectedBeach }) => {
         </div>
       </div>
     );
-    
-  
-  
-  
+
+
+
+
   };
 
   return (

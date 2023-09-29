@@ -27,7 +27,7 @@
   font-weight: 600;
   line-height: normal;
   letter-spacing: 0.446px;
-  margin-left: 80px;
+  margin-left: 160px;
 }
 
 
@@ -57,13 +57,26 @@
 .rectangulo-favoritos h3 {
   color: var(--label-color-dark-primary, #FFF);
   font-family: Poppins;
-  font-size: 17px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 700;
   line-height: 22px;
   letter-spacing: -0.408px;
   position: relative;
-  bottom: 150px;
+  bottom: 160px;
+  left: 20px;
+}
+
+.rectangulo-favoritos h4 {
+  color: var(--label-color-dark-primary, #FFF);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+  position: relative;
+  bottom: 155px;
   left: 20px;
 }
 
@@ -117,7 +130,7 @@
 
 .quitar {
   position: relative;
-  bottom: 185px;
+  bottom: 200px;
   height: 50px;
   width: 50px;
   margin-left: 120px;

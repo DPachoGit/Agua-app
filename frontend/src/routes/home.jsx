@@ -56,7 +56,6 @@ const Home = () => {
         )}
       </main>
       <footer>
-      <SubFooterBar isLoggedIn={isLoggedIn} selectedBeach={selectedBeach}/>
         <MenuFooter onSearchFooterClick={handleSearchFooterClick} />
       </footer>
     </div>

@@ -5,8 +5,9 @@
 }
 
 .info hr {
+  position: absolute;
   height: 5px;
-  width: 90%;
+  width: 300px;
   margin: auto;
   color: black;
   border-radius: 22px;
@@ -107,4 +108,40 @@ margin-top: 5px;
   top: 8px;
   left: 25px;
   color: white;
+}
+
+
+.burbujas img .icono{
+  width: 21px;
+  height: 21px;
+}
+
+.info article div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.separa{
+  position: relative;
+  top: -1px;
+  width: 10px;
+  left: 0px;
+  height: 8px;
+  z-index: 2;  
+}
+.separacentro{
+  position: relative;
+  top: -1px;
+  width: 10px;
+  left: 125px;
+  height: 8px;
+  z-index: 2;  
+}.separadecha{
+  position: relative;
+  top: -1px;
+  width: 10px;
+  left: 250px;
+  height: 8px;
+  z-index: 2;  
 }

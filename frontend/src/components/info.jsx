@@ -25,12 +25,10 @@ const InfoWidget = ({ toggleConfig }) => {
       </div>
 
         <h2>Información de componentes</h2>
-
-
-
         <section>
           <article>
             <div>
+              <img className="icono" src="ph.svg" alt="lino" />
               <h3>Ph</h3>
             </div>
             <div>
@@ -38,6 +36,9 @@ const InfoWidget = ({ toggleConfig }) => {
             </div>
 
             <div>
+              <img className="separa" src="separa.svg" alt="" />
+              <img className="separacentro" src="separa.svg" alt="" />
+            <img className="separadecha" src="separa.svg" alt="" />
               <hr />
             </div>
 
@@ -46,9 +47,9 @@ const InfoWidget = ({ toggleConfig }) => {
               justifyContent: 'space-between'
             }}
             >
-              <h4>7-8,5</h4>
               <h4>6</h4>
-              <h4> {'>6 / <9'}</h4>
+              <h4>7</h4>
+              <h4> {'>9'}</h4>
             </div>
           </article>
         </section>
@@ -56,6 +57,8 @@ const InfoWidget = ({ toggleConfig }) => {
         <section>
           <article>
             <div>
+            <img src="ecoli.svg" alt="lino" />
+
               <h3>E-coli</h3>
             </div>
             <div>
@@ -63,6 +66,10 @@ const InfoWidget = ({ toggleConfig }) => {
             </div>
 
             <div>
+            <img className="separa" src="separa.svg" alt="" />
+            <img className="separacentro" src="separa.svg" alt="" />
+            <img className="separadecha" src="separa.svg" alt="" />
+
               <hr />
             </div>
 
@@ -71,9 +78,9 @@ const InfoWidget = ({ toggleConfig }) => {
               justifyContent: 'space-between'
             }}
             >
-             <h4>7-8,5</h4>
-              <h4>6</h4>
-              <h4> {'>6 / <9'}</h4>
+             <h4>0 UFC/100ml</h4>
+              <h4>170 UFC/100ml</h4>
+              <h4> {'>235 UFC/100ml'}</h4>
             </div>
           </article>
         </section>
@@ -81,6 +88,8 @@ const InfoWidget = ({ toggleConfig }) => {
         <section>
           <article>
             <div>
+            <img src="estre.svg" alt="lino" />
+
               <h3>Streptococos</h3>
             </div>
             <div>
@@ -88,6 +97,10 @@ const InfoWidget = ({ toggleConfig }) => {
             </div>
 
             <div>
+            <img className="separa" src="separa.svg" alt="" />
+            <img className="separacentro" src="separa.svg" alt="" />
+            <img className="separadecha" src="separa.svg" alt="" />
+
               <hr />
             </div>
 
@@ -96,9 +109,9 @@ const InfoWidget = ({ toggleConfig }) => {
               justifyContent: 'space-between'
             }}
             >
-              <h4>7-8,5</h4>
-              <h4>6</h4>
-              <h4> {'>6 / <9'}</h4>
+              <h4>0 UFC/100ml</h4>
+              <h4>20 UFC/100ml</h4>
+              <h4> {'>35 UFC/100ml'}</h4>
             </div>
           </article>
         </section>
@@ -106,13 +119,19 @@ const InfoWidget = ({ toggleConfig }) => {
         <section>
           <article>
             <div>
-              <h3>Yurbidez</h3>
+            <img src="turbo.svg" alt="lino" />
+
+              <h3>Turbidez</h3>
             </div>
             <div>
               <p>Efectos: Infecciones, Problemas gastrointestinales y en la piel.</p>
             </div>
 
             <div>
+            <img className="separa" src="separa.svg" alt="" />
+            <img className="separacentro" src="separa.svg" alt="" />
+            <img className="separadecha" src="separa.svg" alt="" />
+
               <hr />
             </div>
 
@@ -121,9 +140,9 @@ const InfoWidget = ({ toggleConfig }) => {
               justifyContent: 'space-between'
             }}
             >
-              <h4>7-8,5</h4>
-              <h4>6</h4>
-              <h4> {'>6 / <9'}</h4>
+              <h4>0 NTU</h4>
+              <h4>4 NTU</h4>
+              <h4> {'>5 NTU'}</h4>
             </div>
           </article>
         </section>
@@ -131,6 +150,8 @@ const InfoWidget = ({ toggleConfig }) => {
         <section>
           <article>
             <div>
+            <img src="amonio.svg" alt="lino" />
+
               <h3>Amonio</h3>
             </div>
             <div>
@@ -138,6 +159,10 @@ const InfoWidget = ({ toggleConfig }) => {
             </div>
 
             <div>
+            <img className="separa" src="separa.svg" alt="" />
+            <img className="separacentro" src="separa.svg" alt="" />
+            <img className="separadecha" src="separa.svg" alt="" />
+
               <hr />
             </div>
 
@@ -146,9 +171,9 @@ const InfoWidget = ({ toggleConfig }) => {
               justifyContent: 'space-between'
             }}
             >
-              <h4>7-8,5</h4>
-              <h4>6</h4>
-              <h4> {'>6 / <9'}</h4>
+              <h4>0.05 mg/l</h4>
+              <h4>0.8 mgl</h4>
+              <h4> {'>1 mg/l'}</h4>
             </div>
           </article>
         </section>
@@ -156,6 +181,8 @@ const InfoWidget = ({ toggleConfig }) => {
         <section>
           <article>
             <div>
+            <img src="hg.svg" alt="lino" />
+
               <h3>Mercurio</h3>
             </div>
             <div>
@@ -163,6 +190,10 @@ const InfoWidget = ({ toggleConfig }) => {
             </div>
 
             <div>
+            <img className="separa" src="separa.svg" alt="" />
+            <img className="separacentro" src="separa.svg" alt="" />
+            <img className="separadecha" src="separa.svg" alt="" />
+
               <hr />
             </div>
 
@@ -171,9 +202,9 @@ const InfoWidget = ({ toggleConfig }) => {
               justifyContent: 'space-between'
             }}
             >
-              <h4>7-8,5</h4>
-              <h4>6</h4>
-              <h4> {'>6 / <9'}</h4>
+              <h4>0.05 µg/L</h4>
+              <h4>0.8 µg/L</h4>
+              <h4> {'>1 µg/L'}</h4>
             </div>
           </article>
         </section>

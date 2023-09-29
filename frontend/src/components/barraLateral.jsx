@@ -50,38 +50,30 @@ function Sidebar() {
 
       {/* Enlaces */}
       <nav className="enlaces">
-        <ul>
-          {isLoggedIn ? (
-            <>
-              <li>
-              <li><Link to="/home">Home</Link></li>
-              </li>
-              <li>
-                <Link to="/favorites">Mis Favoritas</Link>
-              </li>
-              <li>
-                <Link to="/mapa">Mapa</Link>
-              </li>
-              <li>
-             
-                <button onClick={handleLogout}>Cerrar Sesión</button>
-             
+      <ul>
+  {isLoggedIn ? (
+    <>
+      <li><Link to="/home">Home</Link></li>
+      <li><Link to="/favorites">Mi lista</Link></li>
+      <li><Link to="/mapa">Mapa</Link></li>
+      <li>
+        <button onClick={handleLogout}>Cerrar Sesión</button>
+      </li>
+      <li><p>Versión 1.0.0</p></li>
+    </>
+  ) : (
+    <>
+      <li><Link to="/login">Iniciar sesión</Link></li>
+      <li><Link to="/register">Registrarse</Link></li>
+    </>
+  )}
+</ul>
 
-              </li>
-              <p>Versión 1.0.0</p>
-            </>
-          ) : (
-            <>
 
-              <li>
-                <Link to="/login">Iniciar sesión</Link>
-              </li>
-              <li>
-                <Link to="/register">Registrarse</Link>
-              </li>
-            </>
-          )}
-        </ul>
+
+
+
+
       </nav>
     </aside>
   );

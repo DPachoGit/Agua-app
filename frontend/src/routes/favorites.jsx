@@ -76,6 +76,120 @@ const Favorites = () => {
 
 
 
+  const playasBilbao = {
+    "La Arena": {
+      Clima: "despejado",
+      Descripcion: "despejado",
+      Temperatura: "20.73 °C",
+      Sensacion: "20.71 °C",
+      Min: "19.44 °C",
+      Max: "22.38 °C",
+      Humedad: 71,
+    },
+    "Las Arenas": {
+      Clima: "despejado",
+      Descripcion: "despejado",
+      Temperatura: "20.71 °C",
+      Sensacion: "20.61 °C",
+      Min: "19.39 °C",
+      Max: "22.33 °C",
+      Humedad: 68,
+    },
+    Ereaga: {
+      Clima: "despejado",
+      Descripcion: "despejado",
+      Temperatura: "20.67 °C",
+      Sensacion: "20.57 °C",
+      Min: "19.38 °C",
+      Max: "22.32 °C",
+      Humedad: 68,
+    },
+    Arrigunaga: {
+      Clima: "despejado",
+      Descripcion: "despejado",
+      Temperatura: "20.67 °C",
+      Sensacion: "20.57 °C",
+      Min: "19.41 °C",
+      Max: "22.35 °C",
+      Humedad: 68,
+    },
+    Gorrondatxe: {
+      Clima: "despejado",
+      Descripcion: "despejado",
+      Temperatura: "20.53 °C",
+      Sensacion: "20.41 °C",
+      Min: "19.27 °C",
+      Max: "22.21 °C",
+      Humedad: 68,
+    },
+    Barinatxe: {
+      Clima: "despejado",
+      Descripcion: "despejado",
+      Temperatura: "20.60 °C",
+      Sensacion: "20.49 °C",
+      Min: "19.34 °C",
+      Max: "22.27 °C",
+      Humedad: 68,
+    },
+    Arriatera: {
+      Clima: "despejado",
+      Descripcion: "despejado",
+      Temperatura: "20.60 °C",
+      Sensacion: "20.49 °C",
+      Min: "19.32 °C",
+      Max: "22.26 °C",
+      Humedad: 68,
+    },
+    Meñakoz: {
+      Clima: "despejado",
+      Descripcion: "despejado",
+      Temperatura: "20.60 °C",
+      Sensacion: "20.49 °C",
+      Min: "19.32 °C",
+      Max: "22.26 °C",
+      Humedad: 68,
+    },
+    Barrika: {
+      Clima: "despejado",
+      Descripcion: "despejado",
+      Temperatura: "20.42 °C",
+      Sensacion: "20.40 °C",
+      Min: "19.44 °C",
+      Max: "22.38 °C",
+      Humedad: 72,
+    },
+    Muriola: {
+      Clima: "despejado",
+      Descripcion: "despejado",
+      Temperatura: "20.22 °C",
+      Sensacion: "20.18 °C",
+      Min: "19.22 °C",
+      Max: "22.16 °C",
+      Humedad: 72,
+    },
+    Plentzia: {
+      Clima: "despejado",
+      Descripcion: "despejado",
+      Temperatura: "20.47 °C",
+      Sensacion: "20.45 °C",
+      Min: "19.44 °C",
+      Max: "22.38 °C",
+      Humedad: 72,
+    },
+    Gorliz: {
+      Clima: "despejado",
+      Descripcion: "despejado",
+      Temperatura: "20.25 °C",
+      Sensacion: "20.21 °C",
+      Min: "19.23 °C",
+      Max: "22.16 °C",
+      Humedad: 72,
+    },
+  };
+
+
+
+
   return (
     <div>
       <BackgroundHome />
@@ -92,7 +206,7 @@ const Favorites = () => {
               <FaArrowLeft />
             </Link>
           </div>
-          <h1>Tus Playas Favoritas</h1>
+          <h1>Mi lista</h1>
         </div>
         <div className='cajafav'>
           {options.map((beach) => (
@@ -104,6 +218,7 @@ const Favorites = () => {
                 })()}
               </div>
               <h3>{beach.value.name}</h3>
+              <h4>{playasBilbao[beach.value.name].Clima}</h4>
               <img className='quitar' src="quitarfa.svg" alt="" onClick={() => handleRemoveFromFavorites(email, beach.value.name)}></img>
 
             </div>
